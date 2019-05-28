@@ -52,7 +52,6 @@ public class PersonDaoImpl implements PersonDao {
     @Override
     public void delete(int id) {
 
-
         try {
 
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PERSON);
