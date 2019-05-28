@@ -7,43 +7,45 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 
-@Path("/crud")
+@Path("/persons")
 public class PersonControllerImpl implements PersonController {
    PersonServiceImpl personServiceImpl= new PersonServiceImpl();
 
-    public PersonControllerImpl()  {
-
-    }
     @GET
-    @Path("/sec")
+    @Path("/persons-select")
     @Override
     public void select() {
-        personServiceImpl.selectForService();
+
+     personServiceImpl.selectForService();
+
     }
+
+
     @DELETE
-    @Path("/sil")
+    @Path("/person-delete")
     @Override
     public void delete(@QueryParam("id") int id) {
 
-
      personServiceImpl.deleteForService(id);
+
     }
     @PUT
-    @Path("/guncelle")
+    @Path("/person-update")
     @Consumes(MediaType.APPLICATION_JSON)
     @Override
     public void update(Person person) {
+
      personServiceImpl.updateForService(person);
 
     }
     @POST
-    @Path("/ekle")
+    @Path("/person-insert")
     @Consumes(MediaType.APPLICATION_JSON)
     @Override
     public void insert(Person person)  {
 
             personServiceImpl.insertForService(person);
-        System.out.println(person.toString());
+
 
     }
 

@@ -3,14 +3,10 @@ package com.service;
 import com.dao.PersonDaoImpl;
 import com.model.Person;
 
-import java.sql.SQLException;
+
 
 public class PersonServiceImpl implements PersonService {
     PersonDaoImpl personDaoImpl;
-    public PersonServiceImpl()
-    {
-
-    }
 
     @Override
     public void selectForService() {
@@ -36,12 +32,12 @@ public class PersonServiceImpl implements PersonService {
         try {
             personDaoImpl = new PersonDaoImpl();
             personDaoImpl.insert(person);
-            System.out.println("service  "+person.toString());
+
 
         }
         catch (Exception e)
         {
-            System.out.println("service 39");
+            e.printStackTrace();
         }
 
     }
